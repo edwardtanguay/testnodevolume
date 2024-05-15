@@ -1,0 +1,8 @@
+import fs from 'fs';
+import path from 'path';
+
+const dataPath = path.join(process.env.DATA_PATH || "./data.txt");
+console.log(dataPath);
+
+//const buffer = await fs.readFile(dataPath);
+

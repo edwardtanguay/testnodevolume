@@ -1,0 +1,25 @@
+import fs from 'fs';
+import path from 'path';
+
+const dataPath = path.join(process.env.DATA_PATH || "./data.txt");
+
+const writeTo = data => {
+	  fs.writeFile(dataPath, data.toString()).catch(console.error);
+};
+
+(async()=> {
+//	try {
+		const buffer = await fs.readFile(dataPath);
+		const data = buffer.toString();
+		const newCount = +data + 1;
+		console.log(newCount);
+		writeTo(newCount);
+	/*
+	}
+	catch(e) {
+		console.log("file not found, writing '0' to a new file");
+		writeTo(0);
+	}
+	*/
+})();
+
